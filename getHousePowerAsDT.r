@@ -19,6 +19,15 @@ getHousePowerAsDT <- function(file = "household_power_consumption.txt",
     DTcols <- colnames(fread(dirFile, nrows = 1))
     setnames(DT, DTcols)
     
+    # Create POSIXt list from Date and Time columns
+    DT[, Date_Time := strptime(paste(Date, Time), format = "%d/%m/%Y %H:%M:%S")]
+    
+    # Remove Date and Time columns
+    DT[, c("Date", "Time") := NULL]
+    
+    # Reorder columns with Date_Time first
+    setcolorder(DT, c(length(DT), 1:(length(DT) - 1)))
+    
     # Print head and tail for confirmation
     message("Head:")
     print(head(DT, n = 3))
