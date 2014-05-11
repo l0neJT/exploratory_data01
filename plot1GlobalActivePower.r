@@ -4,11 +4,6 @@
 plot1GlobalActivePower <- function(DT = getHousePowerAsDT(),
                                   file = "Plot1_Global_Active_Power.png",
                                   directory = "./") {
-    # Set global plotting parameters
-    # Stores original global plotting parameters reset at function end
-    origBG <- par("bg")
-    par(bg = "transparent")
-    
     # Set plot parameters
     labelMain <- "Global Active Power"
     labelX <- "Global Active Power (kilowats)"
@@ -22,9 +17,6 @@ plot1GlobalActivePower <- function(DT = getHousePowerAsDT(),
     
     # Close PNG plot device
     dev.off()
-    
-    # Re-set global plotting parameters
-    par(bg = origBG)
     
     # Return character vector of directory/file
     paste(directory, file, sep = "")
