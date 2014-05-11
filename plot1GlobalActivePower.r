@@ -1,8 +1,8 @@
 ## Create a histogram of Global Active Power data
 ## Saves as a PNG to directory/file
 
-plotGlobalActivePower <- function(DT = getHousePowerAsDT(),
-                                  file = "Global_Active_Power.png",
+plot1GlobalActivePower <- function(DT = getHousePowerAsDT(),
+                                  file = "Plot1_Global_Active_Power.png",
                                   directory = "./") {
     # Set global plotting parameters
     # Stores original global plotting parameters reset at function end
